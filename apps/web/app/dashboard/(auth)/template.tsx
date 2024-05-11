@@ -1,4 +1,4 @@
-import { Header } from '@/ui/header'
+import { Header, HeaderSkeleton } from '@/ui/header'
 import Sidebar from '@/ui/sidebar'
 import React, { Suspense } from 'react'
 
@@ -14,7 +14,7 @@ export default function Template({
 			</Suspense>
 
 			<div className="flex flex-col px-4">
-				<Suspense>
+				<Suspense fallback={<HeaderSkeleton />}>
 					<Header />
 				</Suspense>
 

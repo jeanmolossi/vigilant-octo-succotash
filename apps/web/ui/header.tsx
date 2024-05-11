@@ -1,6 +1,5 @@
 import { fetchUser } from '@/lib/actions/fetch-user'
 import { Avatar, AvatarFallback, AvatarImage } from '@appoint/ui'
-import Image from 'next/image'
 
 export async function Header() {
 	const { error, user } = await fetchUser()
@@ -41,4 +40,13 @@ function pickInitials(text: string) {
 	}
 
 	return parts[0].substring(0, 1)
+}
+
+export async function HeaderSkeleton() {
+	return (
+		<header className="py-6 flex gap-2 items-center">
+			<div className="w-[40px] h-[40px] rounded-full bg-gray-200 animate-pulse"></div>
+			<div className="w-[240px] rounded h-5 bg-gray-200 animate-pulse"></div>
+		</header>
+	)
 }

@@ -1,9 +1,10 @@
 'use server'
 
+import { cache } from 'react'
 import { createClient } from '@/lib/supabase/server'
 import prisma from '@/lib/prisma'
 
-export async function fetchUser() {
+async function fetchUserRegular() {
 	const supabase = createClient()
 
 	const {
@@ -21,3 +22,5 @@ export async function fetchUser() {
 
 	return { error: null, user: dbUser }
 }
+
+export const fetchUser = cache(fetchUserRegular)
