@@ -1,6 +1,6 @@
 import '@/styles/globals.css';
-import { ThemeProvider } from '@repo/ui';
-import '@repo/ui/dist/index.css';
+import { ThemeProvider } from '@appoint/ui';
+import '@appoint/ui/dist/index.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
