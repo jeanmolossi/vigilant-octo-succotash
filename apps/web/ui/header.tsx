@@ -1,5 +1,6 @@
 import { fetchUser } from '@/lib/actions/fetch-user'
 import { Avatar, AvatarFallback, AvatarImage } from '@appoint/ui'
+import { pickInitials } from '@appoint/utils'
 
 export async function Header() {
 	const { error, user } = await fetchUser()
@@ -12,7 +13,7 @@ export async function Header() {
 		)
 	}
 
-	const initials = pickInitials(user.name || user.email)
+	const initials = pickInitials(user.name || user.email!)
 
 	return (
 		<header className="py-6">
@@ -31,15 +32,6 @@ export async function Header() {
 			</div>
 		</header>
 	)
-}
-
-function pickInitials(text: string) {
-	const parts = text.split(' ')
-	if (parts.length > 1) {
-		return parts[0][0] + parts[1][0]
-	}
-
-	return parts[0].substring(0, 1)
 }
 
 export async function HeaderSkeleton() {

@@ -14,6 +14,7 @@ import React from 'react'
 import Logo from './logo'
 import { usePathname } from 'next/navigation'
 import { LogoutButton } from './logout-button'
+import { useTenantContext } from './providers/tenant'
 
 const components: Array<{
 	icon: React.ComponentType
@@ -54,9 +55,14 @@ const components: Array<{
 
 export default function Sidebar() {
 	const path = usePathname()
+	const { tenantId } = useTenantContext()
 
 	const isActiveVariant = (href: string) => {
-		return href === path ? 'default' : 'outline'
+		const isRootPath = href === '/' && path.replace(tenantId, '') === '/'
+
+		if (isRootPath) return 'default'
+
+		return href === path.replace(`/${tenantId}`, '') ? 'default' : 'outline'
 	}
 
 	return (
@@ -72,7 +78,7 @@ export default function Sidebar() {
 			<div className="flex flex-col gap-4 flex-1">
 				{components.map(({ icon: Icon, label, href }, i) => (
 					<Button key={i} variant={isActiveVariant(href)} asChild>
-						<Link href={href}>
+						<Link href={`/${tenantId}${href}`}>
 							<Icon /> {label}
 						</Link>
 					</Button>
