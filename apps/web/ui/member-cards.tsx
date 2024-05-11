@@ -2,7 +2,6 @@ import {
 	Avatar,
 	AvatarFallback,
 	AvatarImage,
-	Button,
 	Card,
 	CardContent,
 	CardDescription,
@@ -11,8 +10,8 @@ import {
 	CardTitle,
 } from '@appoint/ui'
 import { MemberAttribuition } from './member-attribuitions'
-import { PlusCircle } from 'lucide-react'
 import { pickInitials } from '@appoint/utils'
+import { AddMemberButton } from './add-member'
 
 const members = [
 	{
@@ -67,10 +66,7 @@ export async function MembersCard() {
 			</CardContent>
 
 			<CardFooter>
-				<Button>
-					<PlusCircle />
-					Adicionar novo membro
-				</Button>
+				<AddMemberButton />
 			</CardFooter>
 		</Card>
 	)

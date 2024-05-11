@@ -15,21 +15,7 @@ import {
 } from '@appoint/ui'
 import { cn } from '@appoint/utils'
 import { Check, ChevronsUpDown } from 'lucide-react'
-
-const attributes = [
-	{
-		attribute: 'Administrador',
-		description: 'Administrador do sistema',
-	},
-	{
-		attribute: 'Tatuador',
-		description: 'Tatuador do sistema',
-	},
-	{
-		attribute: 'Assistente',
-		description: 'Assistente do sistema',
-	},
-]
+import { attributes } from '@/lib/zod/add-member-schema'
 
 export function MemberAttribuition({
 	attribuition,

@@ -71,7 +71,7 @@ export default function Sidebar() {
 				<Logo width={40} />
 
 				<span className="text-xl font-medium text-primary">
-					Labor Hematology
+					{process.env.NEXT_PUBLIC_APP_NAME || 'Appointments'}
 				</span>
 			</div>
 
