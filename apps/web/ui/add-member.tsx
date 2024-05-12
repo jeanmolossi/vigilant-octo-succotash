@@ -15,7 +15,7 @@ export function AddMemberButton() {
 	return (
 		<Dialog>
 			<DialogTrigger asChild>
-				<Button>
+				<Button variant="outline">
 					<PlusCircle />
 					Adicionar novo membro
 				</Button>

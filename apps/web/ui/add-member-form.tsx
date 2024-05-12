@@ -147,7 +147,7 @@ export function AddMemberForm() {
 				</div>
 
 				<DialogFooter className="pt-6">
-					<Button type="submit">
+					<Button variant="success" type="submit">
 						<Save />
 						Adicionar
 					</Button>

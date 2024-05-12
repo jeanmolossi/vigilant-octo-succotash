@@ -65,7 +65,7 @@ export async function MembersCard() {
 				))}
 			</CardContent>
 
-			<CardFooter>
+			<CardFooter className="justify-end">
 				<AddMemberButton />
 			</CardFooter>
 		</Card>
