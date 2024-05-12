@@ -66,7 +66,7 @@ export default function Sidebar() {
 	}
 
 	return (
-		<div className="flex flex-col gap-6 p-4">
+		<div className="flex flex-col gap-6 p-4 bg-white lg:shadow-md shadow-muted">
 			<div className="flex justify-center items-center gap-2 h-12">
 				<Logo width={40} />
 

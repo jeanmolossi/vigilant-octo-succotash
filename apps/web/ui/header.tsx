@@ -1,9 +1,14 @@
 import { fetchUser } from '@/lib/actions/fetch-user'
-import { Avatar, AvatarFallback, AvatarImage } from '@appoint/ui'
+import { fetchUserStudios } from '@/lib/actions/fetch-user-studios'
+import { Avatar, AvatarFallback, AvatarImage, Label } from '@appoint/ui'
 import { pickInitials } from '@appoint/utils'
+import { StudioSelector } from './studio-selector'
 
 export async function Header() {
-	const { error, user } = await fetchUser()
+	const fetchUserPromise = fetchUser()
+	const fetchStudiosPromise = fetchUserStudios()
+
+	const { error, user } = await fetchUserPromise
 
 	if (error || !user) {
 		return (
@@ -14,9 +19,10 @@ export async function Header() {
 	}
 
 	const initials = pickInitials(user.name || user.email!)
+	const studios = await fetchStudiosPromise
 
 	return (
-		<header className="py-6">
+		<header className="py-6 flex justify-between">
 			<div className="flex items-center gap-4">
 				<Avatar>
 					<AvatarImage
@@ -29,6 +35,11 @@ export async function Header() {
 				</Avatar>
 
 				<span>Bem vindo(a), {user.name || user.email}</span>
+			</div>
+
+			<div className="flex gap-2 flex-col">
+				<Label>Alterar estúdio</Label>
+				<StudioSelector studios={studios} align="end" />
 			</div>
 		</header>
 	)

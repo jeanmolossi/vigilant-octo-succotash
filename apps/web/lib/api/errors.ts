@@ -5,6 +5,7 @@ import { generateErrorMessage } from 'zod-error'
 
 export const ErrorCode = z.enum([
 	'bad_request',
+	'unauthorized',
 	'internal_server_error',
 	'unprocessable_entity',
 	'not_found',
@@ -12,6 +13,7 @@ export const ErrorCode = z.enum([
 
 const ErrorCodeToHttpStatus: Record<z.infer<typeof ErrorCode>, number> = {
 	bad_request: 400,
+	unauthorized: 401,
 	not_found: 404,
 	unprocessable_entity: 422,
 	internal_server_error: 500,
